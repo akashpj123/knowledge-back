@@ -29,7 +29,7 @@ app.use('/api', usermake);
 
 // MongoDB connection
 const db = mongoose.connection;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/hubknow', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://akashpj77:<password>@knowledgehub.d6y0qhm.mongodb.net/knowledge-hub?retryWrites=true&w=majority&appName=knowledgehub', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
