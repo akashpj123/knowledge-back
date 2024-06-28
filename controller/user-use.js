@@ -49,7 +49,7 @@ export const admin = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newuser = new User({
-      id: req.user.id,
+ 
       name: name,
       email: email,
       password: hashedPassword,
@@ -67,7 +67,7 @@ export const admin = async (req, res) => {
 
 // Login admin
 export const login = async (req, res) => {
-  const {id, email, password } = req.body;
+  const { email, password } = req.body;
 
   try {
     // Check if the user exists
@@ -100,7 +100,7 @@ export const login = async (req, res) => {
 };
 // Login admin
 export const loginAdmin = async (req, res) => {
-  const { id,email, password } = req.body;
+  const { email, password } = req.body;
 
   try {
     // Check if the user exists
