@@ -29,7 +29,7 @@ app.use('/api', usermake);
 
 // MongoDB connection
 
-import { MongoClient, ServerApiVersion } from 'mongoose';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 const uri = process.env.MONGODB_URI || "mongodb+srv://akashpj77:DQ52UjjuASsq3ccq@knowledgehub.d6y0qhm.mongodb.net/?appName=knowledgehub";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
