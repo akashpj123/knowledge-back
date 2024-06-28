@@ -5,7 +5,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
-import mongoose from 'mongoose';
+import mongoose from 'mongodb';
 // Import your routers
 import path from "path";
 
@@ -30,7 +30,7 @@ app.use('/api', usermake);
 // MongoDB connection
 const dbUri = process.env.MONGODB_URI || 'mongodb+srv://akashpj77:yourpassword@knowledgehub.d6y0qhm.mongodb.net/knowledgehub?retryWrites=true&w=majority&appName=knowledgehub';
 
-mongoose.connect(dbUri,{useNewUrlParser: true, useUnifiedTopology: true,})
+mongoose.connect(dbUri)
  
 // Start server
 const PORT = process.env.PORT || 8025;
