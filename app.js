@@ -14,7 +14,8 @@ import { usermake } from './routes/user-get.js';
 const app = express();
 // Use middleware
 app.use(cors({
-  origin: true,
+  origin: ["https://knowledge-hub-livid.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 app.use(logger('dev'));
