@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ path: './.env' });
 import crypto from 'crypto';
 import express from 'express';
 import cookieParser from 'cookie-parser';
