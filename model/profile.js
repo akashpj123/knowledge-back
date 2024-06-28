@@ -1,4 +1,4 @@
-import mongoose from 'mongodb';
+import mongoose from 'mongoose';
 
 // Profile Schema
 const profileSchema = new mongoose.Schema({
