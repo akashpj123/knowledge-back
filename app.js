@@ -5,7 +5,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
-import mongoose from 'mongodb';
+
 // Import your routers
 import path from "path";
 
@@ -28,10 +28,33 @@ app.use(cookieParser());
 app.use('/api', usermake);
 
 // MongoDB connection
-const dbUri = process.env.MONGODB_URI || 'mongodb+srv://akashpj77:yourpassword@knowledgehub.d6y0qhm.mongodb.net/knowledgehub?retryWrites=true&w=majority&appName=knowledgehub';
 
-mongoose.connect(dbUri)
- 
+import { MongoClient, ServerApiVersion } from 'mongodb';
+const uri = "mongodb+srv://akashpj77:<password>@knowledgehub.d6y0qhm.mongodb.net/?appName=knowledgehub";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
 // Start server
 const PORT = process.env.PORT || 8025;
 app.listen(PORT, () => {
